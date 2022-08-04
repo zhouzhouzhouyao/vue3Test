@@ -13,6 +13,7 @@ function chooseFile () {
 
 function getFile (e:any) {
   console.log(e);
+  console.log('123');
   const fileUrl = e.target.value;
   const file = e.target.files[0];
   console.log(`file: ${file}, fileUrl: ${fileUrl}`);
