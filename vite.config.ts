@@ -9,5 +9,19 @@ export default defineConfig({
     eslintPlugin({
       include: ['src/**/*.ts', 'src/**/*.vue', 'src/*.ts', 'src/*.vue']
     })
-  ]
+  ],
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+    cors: true,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:5678',
+        changeOrigin: true,
+        ws: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
+  }
 });
