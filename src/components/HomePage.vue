@@ -9,7 +9,7 @@ const fileRef = ref();
 // const list = ref<Array<string>>([]);
 const dir = ref<any>({});
 const progress = ref<number>(0);
-// const hasDir = ref<Boolean>(true);
+// const disabled = ref<Boolean>(true);
 
 // 获取盘符
 // const getDrives = () => {
@@ -59,7 +59,7 @@ const uploadFile = (path:string, name:string) => {
     const total:number = data.total;
     if (data.count) {
       const count:number = data.count;
-      progress.value = Number((count / total).toFixed(2)) * 100;
+      progress.value = Number((count * 100 / total).toFixed(2));
     } else {
       const instance = axios.create({
         headers: {
@@ -161,5 +161,8 @@ function getFile (e:any) {
     <div v-else>
       {{dir}}
     </div> -->
+    <div>
+      {{dir}}
+    </div>
   </div>
 </template>
