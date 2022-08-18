@@ -10,7 +10,7 @@ const fileRef = ref();
 const dir = ref<any>({});
 const progress = ref<number>(0);
 
-// 上传文件 test
+// 上传文件
 const uploadFile = (path:string, name:string) => {
   const ws = new WebSocket('ws://127.0.0.1:5678/v1/doc/upload');
   ws.onopen = (evt) => {
