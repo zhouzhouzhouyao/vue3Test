@@ -9,25 +9,8 @@ const fileRef = ref();
 // const list = ref<Array<string>>([]);
 const dir = ref<any>({});
 const progress = ref<number>(0);
-// const disabled = ref<Boolean>(true);
 
-// 获取盘符
-// const getDrives = () => {
-//   axios.get('/api/v1/file/getDrives').then((res:any) => {
-//     list.value = res.data;
-//     console.log(list);
-//   });
-// };
-
-// 根据路径获取目录
-// const getDir = (path:string) => {
-//   axios.get('/api/v1/file/readDir?path=' + path)
-//     .then((res:any) => {
-//       dir.value = res.data;
-//     });
-// };
-
-// 上传文件
+// 上传文件 test
 const uploadFile = (path:string, name:string) => {
   const ws = new WebSocket('ws://127.0.0.1:5678/v1/doc/upload');
   ws.onopen = (evt) => {
@@ -122,9 +105,6 @@ function websocketTest () {
 function chooseFile () {
   // fileRef.value.click();
   websocketTest();
-  // getDrives();
-  // getDir('D:');
-  // uploadFile('D:\\code\\README.md', 'README.md');
 }
 
 function getFile (e:any) {
@@ -151,16 +131,6 @@ function getFile (e:any) {
       :percentage=progress
       status="success"
     />
-    <!-- <a href="BingoFile://">BingoFile run</a> -->
-    <!-- <div>{{list}}</div>
-    <div v-if="hasDir">
-      <div v-for="item in dir" :key="item.modTime">
-        {{item.path}}
-      </div>
-    </div>
-    <div v-else>
-      {{dir}}
-    </div> -->
     <div>
       {{dir}}
     </div>
